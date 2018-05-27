@@ -26,8 +26,21 @@
 #ifndef MICROPY_INCLUDED_STM32_PYB_IRQ_H
 #define MICROPY_INCLUDED_STM32_PYB_IRQ_H
 
+typedef enum {
+    IRQ_FLAG_NONE = 0x00,
+    IRQ_FLAG_RX_IDLE= 1<<0,
+} irq_flag_t;
 
+typedef struct _pyb_irq_obj_t {
+    mp_obj_base_t base;
+    mp_obj_t parent;          // Source for interrupt
+    uint8_t  enable;          // Enable mask for calling the MP callback
+    irq_flag_t flags;         // Reason for executing the callback
+    mp_obj_t handler;         // MP function to call
+} pyb_irq_obj_t;
 
+extern const mp_obj_type_t pyb_irq_type;
 
+void irq_dispatch(pyb_irq_obj_t *self);
 
 #endif // MICROPY_INCLUDED_STM32_PYB_IRQ_H
