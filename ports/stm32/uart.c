@@ -991,7 +991,7 @@ STATIC mp_obj_t pyb_uart_sendbreak(mp_obj_t self_in) {
 }
 STATIC MP_DEFINE_CONST_FUN_OBJ_1(pyb_uart_sendbreak_obj, pyb_uart_sendbreak);
 
-/// \method irq(handler=None, trigger=RX_IDLE_IRQ | TX_CPLT_IRQ)
+/// \method irq(handler=None, trigger=RX_IDLE_IRQ )
 /// Set the function to be called when the uart receives an interrrupt.
 /// `handler` is passed 1 argument, the uart object.
 /// If `handler` is `None` then the callback will be disabled.
