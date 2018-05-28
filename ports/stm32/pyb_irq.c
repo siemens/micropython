@@ -75,10 +75,10 @@ STATIC mp_obj_t pyb_irq_trigger(size_t n_args, const mp_obj_t *args) {
     pyb_irq_obj_t *self = args[0];
     if (n_args == 1) {
         // get IRQ callback mask
-        return MP_OBJ_NEW_SMALL_INT(self->enable);
+        return MP_OBJ_NEW_SMALL_INT(self->irq_reason);
     } else {
         // set IRQ callback mask
-        self->enable =  mp_obj_get_int(args[1]);
+        self->irq_reason =  mp_obj_get_int(args[1]);
         return mp_const_none;
     }
 }
