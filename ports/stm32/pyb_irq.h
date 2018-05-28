@@ -28,7 +28,6 @@
 
 typedef enum {
     IRQ_FLAG_NONE = 0x00,
-    IRQ_FLAG_RX_IDLE= 1<<0,
 } irq_flag_t;
 
 typedef struct _pyb_irq_obj_t {
