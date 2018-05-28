@@ -33,7 +33,7 @@ typedef enum {
 typedef struct _pyb_irq_obj_t {
     mp_obj_base_t base;
     mp_obj_t parent;          // Source for interrupt
-    uint8_t  irq_reason;      // IRQ reason for calling the MP callback
+    uint8_t  enable;          // Enable IRQ for calling the MP callback
     irq_flag_t flags;         // Reason for executing the callback
     mp_obj_t handler;         // MP function to call
 } pyb_irq_obj_t;
