@@ -3,7 +3,7 @@
  *
  * The MIT License (MIT)
  *
- * Copyright (c) 2013, 2014 Damien P. George
+ * Copyright (c) 2018 Tobias Badertscher
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -33,7 +33,7 @@ typedef enum {
 typedef struct _pyb_irq_obj_t {
     mp_obj_base_t base;
     mp_obj_t parent;          // Source for interrupt
-    uint8_t  enable;          // Enable mask for calling the MP callback
+    uint8_t  irq_reason;      // IRQ reason for calling the MP callback
     irq_flag_t flags;         // Reason for executing the callback
     mp_obj_t handler;         // MP function to call
 } pyb_irq_obj_t;
