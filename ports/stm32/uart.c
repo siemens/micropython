@@ -543,7 +543,7 @@ void uart_irq_handler(mp_uint_t uart_id) {
         self->irq.flags |= IRQ_FLAG_RX_IDLE;
     }
     self->irq.flags &= self->irq.enable;
-    if (!self->irq.flags==IRQ_FLAG_NONE) {
+    if (self->irq.flags != IRQ_FLAG_NONE) {
         irq_dispatch(&self->irq);
     }
 
